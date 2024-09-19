@@ -19,6 +19,7 @@ class SidebarItem with Diagnosticable {
     this.focusNode,
     this.semanticLabel,
     this.disclosureItems,
+    this.expandDisclosureItems = false,
     this.trailing,
   });
 
@@ -43,7 +44,7 @@ class SidebarItem with Diagnosticable {
   final Color? unselectedColor;
 
   /// The [shape] property specifies the outline (border) of the
-  /// decoration. The shape must not be null. It's used alonside
+  /// decoration. The shape must not be null. It's used alongside
   /// [selectedColor].
   final ShapeBorder? shape;
 
@@ -57,6 +58,11 @@ class SidebarItem with Diagnosticable {
   ///
   /// If non-null and [leading] is null, a local animated icon is created
   final List<SidebarItem>? disclosureItems;
+
+  /// If true, the disclosure items will be expanded otherwise collapsed.
+  ///
+  /// Defaults to false. There is no impact if [disclosureItems] is null.
+  final bool expandDisclosureItems;
 
   /// An optional trailing widget.
   ///
@@ -77,6 +83,8 @@ class SidebarItem with Diagnosticable {
       'disclosure items',
       disclosureItems,
     ));
+    properties.add(
+        FlagProperty('expandDisclosureItems', value: expandDisclosureItems));
     properties.add(DiagnosticsProperty<Widget?>('trailing', trailing));
   }
 }

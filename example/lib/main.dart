@@ -47,8 +47,6 @@ class MacosUIGalleryApp extends StatelessWidget {
         final appTheme = context.watch<AppTheme>();
         return MacosApp(
           title: 'macos_ui Widget Gallery',
-          theme: MacosThemeData.light(),
-          darkTheme: MacosThemeData.dark(),
           themeMode: appTheme.mode,
           debugShowCheckedModeBanner: false,
           home: const WidgetGallery(),
@@ -223,6 +221,7 @@ class _WidgetGalleryState extends State<WidgetGallery> {
                       label: Text('ResizablePane'),
                     ),
                   ],
+                  expandDisclosureItems: true,
                 ),
                 SidebarItem(
                   leading: MacosImageIcon(
