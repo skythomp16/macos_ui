@@ -104,6 +104,7 @@ void main() {
           'borderRadius: BorderRadius.circular(4.0)',
           'disabled',
           'secondary: null',
+          'iconData: null',
         ],
       );
     });

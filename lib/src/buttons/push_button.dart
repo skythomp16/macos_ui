@@ -77,6 +77,34 @@ extension PushButtonControlSizeX on ControlSize {
     }
   }
 
+  /// Determines the button's icon size
+  double get iconSize {
+    switch (this) {
+      case ControlSize.mini:
+        return 8;
+      case ControlSize.small:
+        return 12;
+      case ControlSize.regular:
+        return 16;
+      case ControlSize.large:
+        return 20;
+    }
+  }
+
+  /// Determines the button's left icon padding
+  EdgeInsets get iconPadding {
+    switch (this) {
+      case ControlSize.mini:
+        return const EdgeInsets.fromLTRB(5, 0, 0, 0);
+      case ControlSize.small:
+        return const EdgeInsets.fromLTRB(7, 0, 0, 0);
+      case ControlSize.regular:
+        return const EdgeInsets.fromLTRB(10, 0, 0, 0);
+      case ControlSize.large:
+        return const EdgeInsets.fromLTRB(12, 0, 0, 0);
+    }
+  }
+
   /// Determines the button's minimum size.
   BoxConstraints get constraints {
     switch (this) {
@@ -130,6 +158,7 @@ class PushButton extends StatefulWidget {
     this.semanticLabel,
     this.mouseCursor = SystemMouseCursors.basic,
     this.secondary,
+    this.iconData,
   }) : assert(pressedOpacity == null ||
             (pressedOpacity >= 0.0 && pressedOpacity <= 1.0));
 
@@ -202,6 +231,10 @@ class PushButton extends StatefulWidget {
   /// Can still be overridden if the [color] attribute is non-null.
   final bool? secondary;
 
+  /// An optional iconData that can be added to a button.
+  /// This is an iconData instead of icon so we can control the size
+  final IconData? iconData;
+
   /// Whether the button is enabled or disabled. Buttons are disabled by default. To
   /// enable a button, set its [onPressed] property to a non-null value.
   bool get enabled => onPressed != null;
@@ -221,6 +254,7 @@ class PushButton extends StatefulWidget {
       ifFalse: 'disabled',
     ));
     properties.add(DiagnosticsProperty('secondary', secondary));
+    properties.add(DiagnosticsProperty('iconData', iconData));
   }
 
   @override
@@ -361,18 +395,31 @@ class PushButtonState extends State<PushButton>
                         foregroundDecoration: buttonHeldDown
                             ? _getClickEffectBoxDecoration()
                             : const BoxDecoration(),
-                        child: Padding(
-                          padding: widget.controlSize.padding,
-                          child: Align(
-                            alignment: widget.alignment,
-                            widthFactor: 1.0,
-                            heightFactor: 1.0,
-                            child: DefaultTextStyle(
-                              style: widget.controlSize.textStyle(baseStyle),
-                              child: widget.child,
+                        child: Row(
+                          children: [
+                            widget.iconData != null
+                                ? Padding(padding: widget.controlSize.iconPadding,)
+                                : const SizedBox.shrink(),
+                            widget.iconData != null ? Icon(widget.iconData,
+                                size: widget.controlSize.iconSize,
+                                color: Colors.white) : const SizedBox.shrink(),
+                            Padding(
+                              padding: widget.controlSize.padding,
+                              child: Align(
+                                  alignment: widget.alignment,
+                                  widthFactor: 1.0,
+                                  heightFactor: 1.0,
+                                  child: Row(children: [
+                                    DefaultTextStyle(
+                                      style: widget.controlSize.textStyle(
+                                          baseStyle),
+                                      child: widget.child,
+                                    ),
+                                  ],)
+                              ),
                             ),
-                          ),
-                        ),
+                          ],
+                        )
                       ),
                     );
                   },

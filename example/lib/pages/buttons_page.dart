@@ -248,6 +248,196 @@ class _ButtonsPageState extends State<ButtonsPage> {
                   ),
                   const SizedBox(height: 16),
                   Text(
+                    'Primary with Icon',
+                    style: MacosTypography
+                        .of(context)
+                        .title2,
+                  ),
+                  Row(
+                    children: [
+                      PushButton(
+                        controlSize: ControlSize.mini,
+                        iconData: CupertinoIcons.star,
+                        onPressed: () {
+                          Navigator.of(context).push(
+                            MaterialPageRoute(
+                              builder: (_) {
+                                return MacosScaffold(
+                                  toolBar: const ToolBar(
+                                    title: Text('New page'),
+                                  ),
+                                  children: [
+                                    ContentArea(
+                                      builder: (context, _) {
+                                        return Center(
+                                          child: PushButton(
+                                            controlSize: ControlSize.regular,
+                                            child: const Text('Go Back'),
+                                            onPressed: () {
+                                              Navigator.of(context).maybePop();
+                                            },
+                                          ),
+                                        );
+                                      },
+                                    ),
+                                    ResizablePane(
+                                      minSize: 180,
+                                      startSize: 200,
+                                      windowBreakpoint: 700,
+                                      resizableSide: ResizableSide.left,
+                                      builder: (_, __) {
+                                        return const Center(
+                                          child: Text('Resizable Pane'),
+                                        );
+                                      },
+                                    ),
+                                  ],
+                                );
+                              },
+                            ),
+                          );
+                        },
+                        child: const Text('Mini'),
+                      ),
+                      const SizedBox(width: 8),
+                      PushButton(
+                        controlSize: ControlSize.small,
+                        iconData: CupertinoIcons.plus_rectangle,
+                        onPressed: () {
+                          Navigator.of(context).push(
+                            MaterialPageRoute(
+                              builder: (_) {
+                                return MacosScaffold(
+                                  toolBar: const ToolBar(
+                                    title: Text('New page'),
+                                  ),
+                                  children: [
+                                    ContentArea(
+                                      builder: (context, _) {
+                                        return Center(
+                                          child: PushButton(
+                                            controlSize: ControlSize.regular,
+                                            child: const Text('Go Back'),
+                                            onPressed: () {
+                                              Navigator.of(context).maybePop();
+                                            },
+                                          ),
+                                        );
+                                      },
+                                    ),
+                                    ResizablePane(
+                                      minSize: 180,
+                                      startSize: 200,
+                                      windowBreakpoint: 700,
+                                      resizableSide: ResizableSide.left,
+                                      builder: (_, __) {
+                                        return const Center(
+                                          child: Text('Resizable Pane'),
+                                        );
+                                      },
+                                    ),
+                                  ],
+                                );
+                              },
+                            ),
+                          );
+                        },
+                        child: const Text('Small'),
+                      ),
+                      const SizedBox(width: 8),
+                      PushButton(
+                        controlSize: ControlSize.regular,
+                        iconData: CupertinoIcons.minus_rectangle,
+                        onPressed: () {
+                          Navigator.of(context).push(
+                            MaterialPageRoute(
+                              builder: (_) {
+                                return MacosScaffold(
+                                  toolBar: const ToolBar(
+                                    title: Text('New page'),
+                                  ),
+                                  children: [
+                                    ContentArea(
+                                      builder: (context, _) {
+                                        return Center(
+                                          child: PushButton(
+                                            controlSize: ControlSize.regular,
+                                            child: const Text('Go Back'),
+                                            onPressed: () {
+                                              Navigator.of(context).maybePop();
+                                            },
+                                          ),
+                                        );
+                                      },
+                                    ),
+                                    ResizablePane(
+                                      minSize: 180,
+                                      startSize: 200,
+                                      windowBreakpoint: 700,
+                                      resizableSide: ResizableSide.left,
+                                      builder: (_, __) {
+                                        return const Center(
+                                          child: Text('Resizable Pane'),
+                                        );
+                                      },
+                                    ),
+                                  ],
+                                );
+                              },
+                            ),
+                          );
+                        },
+                        child: const Text('Regular'),
+                      ),
+                      const SizedBox(width: 8),
+                      PushButton(
+                        controlSize: ControlSize.large,
+                        iconData: CupertinoIcons.eye,
+                        onPressed: () {
+                          Navigator.of(context).push(
+                            MaterialPageRoute(
+                              builder: (_) {
+                                return MacosScaffold(
+                                  toolBar: const ToolBar(
+                                    title: Text('New page'),
+                                  ),
+                                  children: [
+                                    ContentArea(
+                                      builder: (context, _) {
+                                        return Center(
+                                          child: PushButton(
+                                            controlSize: ControlSize.regular,
+                                            child: const Text('Go Back'),
+                                            onPressed: () {
+                                              Navigator.of(context).maybePop();
+                                            },
+                                          ),
+                                        );
+                                      },
+                                    ),
+                                    ResizablePane(
+                                      minSize: 180,
+                                      startSize: 200,
+                                      windowBreakpoint: 700,
+                                      resizableSide: ResizableSide.left,
+                                      builder: (_, __) {
+                                        return const Center(
+                                          child: Text('Resizable Pane'),
+                                        );
+                                      },
+                                    ),
+                                  ],
+                                );
+                              },
+                            ),
+                          );
+                        },
+                        child: const Text('Large'),
+                      )
+                    ],
+                  ),
+                  const SizedBox(height: 16),
+                  Text(
                     'Secondary',
                     style: MacosTypography.of(context).title2,
                   ),
@@ -428,6 +618,200 @@ class _ButtonsPageState extends State<ButtonsPage> {
                         secondary: true,
                         child: Text('Large'),
                       ),
+                    ],
+                  ),
+                  const SizedBox(height: 16),
+                  Text(
+                    'Secondary with Icon',
+                    style: MacosTypography
+                        .of(context)
+                        .title2,
+                  ),
+                  Row(
+                    children: [
+                      PushButton(
+                        controlSize: ControlSize.mini,
+                        iconData: CupertinoIcons.star,
+                        secondary: true,
+                        onPressed: () {
+                          Navigator.of(context).push(
+                            MaterialPageRoute(
+                              builder: (_) {
+                                return MacosScaffold(
+                                  toolBar: const ToolBar(
+                                    title: Text('New page'),
+                                  ),
+                                  children: [
+                                    ContentArea(
+                                      builder: (context, _) {
+                                        return Center(
+                                          child: PushButton(
+                                            controlSize: ControlSize.regular,
+                                            child: const Text('Go Back'),
+                                            onPressed: () {
+                                              Navigator.of(context).maybePop();
+                                            },
+                                          ),
+                                        );
+                                      },
+                                    ),
+                                    ResizablePane(
+                                      minSize: 180,
+                                      startSize: 200,
+                                      windowBreakpoint: 700,
+                                      resizableSide: ResizableSide.left,
+                                      builder: (_, __) {
+                                        return const Center(
+                                          child: Text('Resizable Pane'),
+                                        );
+                                      },
+                                    ),
+                                  ],
+                                );
+                              },
+                            ),
+                          );
+                        },
+                        child: const Text('Mini'),
+                      ),
+                      const SizedBox(width: 8),
+                      PushButton(
+                        controlSize: ControlSize.small,
+                        iconData: CupertinoIcons.plus_rectangle,
+                        secondary: true,
+                        onPressed: () {
+                          Navigator.of(context).push(
+                            MaterialPageRoute(
+                              builder: (_) {
+                                return MacosScaffold(
+                                  toolBar: const ToolBar(
+                                    title: Text('New page'),
+                                  ),
+                                  children: [
+                                    ContentArea(
+                                      builder: (context, _) {
+                                        return Center(
+                                          child: PushButton(
+                                            controlSize: ControlSize.regular,
+                                            child: const Text('Go Back'),
+                                            onPressed: () {
+                                              Navigator.of(context).maybePop();
+                                            },
+                                          ),
+                                        );
+                                      },
+                                    ),
+                                    ResizablePane(
+                                      minSize: 180,
+                                      startSize: 200,
+                                      windowBreakpoint: 700,
+                                      resizableSide: ResizableSide.left,
+                                      builder: (_, __) {
+                                        return const Center(
+                                          child: Text('Resizable Pane'),
+                                        );
+                                      },
+                                    ),
+                                  ],
+                                );
+                              },
+                            ),
+                          );
+                        },
+                        child: const Text('Small'),
+                      ),
+                      const SizedBox(width: 8),
+                      PushButton(
+                        controlSize: ControlSize.regular,
+                        iconData: CupertinoIcons.minus_rectangle,
+                        secondary: true,
+                        onPressed: () {
+                          Navigator.of(context).push(
+                            MaterialPageRoute(
+                              builder: (_) {
+                                return MacosScaffold(
+                                  toolBar: const ToolBar(
+                                    title: Text('New page'),
+                                  ),
+                                  children: [
+                                    ContentArea(
+                                      builder: (context, _) {
+                                        return Center(
+                                          child: PushButton(
+                                            controlSize: ControlSize.regular,
+                                            child: const Text('Go Back'),
+                                            onPressed: () {
+                                              Navigator.of(context).maybePop();
+                                            },
+                                          ),
+                                        );
+                                      },
+                                    ),
+                                    ResizablePane(
+                                      minSize: 180,
+                                      startSize: 200,
+                                      windowBreakpoint: 700,
+                                      resizableSide: ResizableSide.left,
+                                      builder: (_, __) {
+                                        return const Center(
+                                          child: Text('Resizable Pane'),
+                                        );
+                                      },
+                                    ),
+                                  ],
+                                );
+                              },
+                            ),
+                          );
+                        },
+                        child: const Text('Regular'),
+                      ),
+                      const SizedBox(width: 8),
+                      PushButton(
+                        controlSize: ControlSize.large,
+                        iconData: CupertinoIcons.eye,
+                        secondary: true,
+                        onPressed: () {
+                          Navigator.of(context).push(
+                            MaterialPageRoute(
+                              builder: (_) {
+                                return MacosScaffold(
+                                  toolBar: const ToolBar(
+                                    title: Text('New page'),
+                                  ),
+                                  children: [
+                                    ContentArea(
+                                      builder: (context, _) {
+                                        return Center(
+                                          child: PushButton(
+                                            controlSize: ControlSize.regular,
+                                            child: const Text('Go Back'),
+                                            onPressed: () {
+                                              Navigator.of(context).maybePop();
+                                            },
+                                          ),
+                                        );
+                                      },
+                                    ),
+                                    ResizablePane(
+                                      minSize: 180,
+                                      startSize: 200,
+                                      windowBreakpoint: 700,
+                                      resizableSide: ResizableSide.left,
+                                      builder: (_, __) {
+                                        return const Center(
+                                          child: Text('Resizable Pane'),
+                                        );
+                                      },
+                                    ),
+                                  ],
+                                );
+                              },
+                            ),
+                          );
+                        },
+                        child: const Text('Large'),
+                      )
                     ],
                   ),
                   const SizedBox(height: 16),

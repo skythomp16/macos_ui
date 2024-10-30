@@ -1,3 +1,6 @@
+## [2.1.2]
+* Added support for using an icon inside a push button
+
 ## [2.1.1]
 * Fixed a bug where `MacosPulldownMenuItem` would not show an alert dialog when tapped.
 
